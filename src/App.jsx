@@ -1,22 +1,21 @@
 import { useSelector, useDispatch } from "react-redux";
 import Header from "./components/Header/Header";
-// import { increment } from "./store/action";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
-/* https://api.themoviedb.org/3/discover/movie?api_key=fda7c15a6c66e214c0ef6a082e75bbdb */
+import Videos from "./pages/Videos/Videos";
+import Favourite from "./pages/Favourite/Favourite";
+
 function App() {
   const dispatch = useDispatch();
-  /* const { count, loading } = useSelector((state) => state.count); */
 
-  /* const handleInc = () => {
-    dispatch(increment(100));
-  }; */
   return (
     <>
       <Header />
-      <Home />
-      {/* <p>{count}</p>
-      <button onClick={handleInc}>+</button>
-      <button>-</button> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/video/:id" element={<Videos />} />
+        <Route path="/favourite" element={<Favourite />} />
+      </Routes>
     </>
   );
 }
